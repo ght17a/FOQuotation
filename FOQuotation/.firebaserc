@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "quotation-e72e8": {
+      "hosting": {
+        "FOQuotation": [
+          "quotation-e72e8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "quotation-e72e8"
+  }
+}
