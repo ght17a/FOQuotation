@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
   mainQuotation: any = null;
   otherQuotations: any[] = [];
-  estimatedPrice!: number;
+  estimatedPrice: number | null = null;
 
   constructor(private fetchQuotations: FetchQuotationsService, private db: Firestore, private router: Router) {}
 
@@ -36,6 +36,7 @@ export class HomePageComponent implements OnInit {
       price: this.estimatedPrice,
       status: 'done'
     }).then(() => {
+      this.estimatedPrice = null;
       this.fetchQuotations.getData().subscribe(quotations => {
         if (quotations.length > 0) {
           this.mainQuotation = quotations[0];
