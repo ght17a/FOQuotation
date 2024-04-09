@@ -1,21 +1,27 @@
-<div class="quotations">
-    <h3>Quotations à traiter</h3>
-    <div class="card-container">
-        <div class="card" *ngFor="let quotation of quotations$ | async" (click)="openModal(quotation)">
-            <img [src]="quotation.imageUrl" class="card-img">
+<div class="container">
+    <div class="title">
+    <h2>Demande de quotation à traiter</h2>
+        <div class="main-quotation" *ngIf="mainQuotation">
+            <img [src]="mainQuotation.imageUrl" class="card-img">
             <div class="card-content">
-                <p class="card-text">{{ quotation.message }}</p>
-                <p class="card-status">Statut : {{ quotation.status }}</p>
-                <p>Estimation de prix à ajouter pour cette quotation</p>
+                <p class="card-text">{{ mainQuotation.message }}</p>
+                <p class="card-status">Statut : {{ mainQuotation.status }}</p>
+                <input type="number" [(ngModel)]="estimatedPrice" placeholder="Estimation de prix">
+                <button (click)="submitPrice(mainQuotation)">Valider</button>
             </div>
         </div>
-    </div>
-    <div *ngIf="selectedQuotation" class="modal">
-        <div class="modal-content">
-            <span class="close" (click)="closeModal()">&times;</span>
-            <h2>Ajouter une estimation de prix</h2>
-            <input type="number" [(ngModel)]="estimatedPrice" placeholder="Estimation de prix">
-            <button (click)="updatePrice()">Mettre à jour</button>
+    </div>  
+    
+    <div class="title2">
+    <h3>Liste des quotations en attente</h3>
+        <div class="quotations-list">
+            <div class="card" *ngFor="let quotation of otherQuotations">
+            <img [src]="quotation.imageUrl" class="card-img">
+                <div class="card-content">
+                    <p class="card-text">{{ quotation.message }}</p>
+                    <p class="card-status">Statut : {{ quotation.status }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

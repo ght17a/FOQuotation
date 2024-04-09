@@ -1,9 +1,11 @@
 {
   "hosting": [
     {
-      "target": "FOQuotation",
+      "target": "foquotation",
       "source": ".",
-      "frameworksBackend": {}
+      "frameworksBackend": {
+        "region": "europe-west1"
+      }
     }
   ]
 }
