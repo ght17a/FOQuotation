@@ -15,7 +15,7 @@
     <h3>Liste des quotations en attente</h3>
         <div class="quotations-list">
             <div class="card" *ngFor="let quotation of otherQuotations">
-            <img [src]="quotation.imageUrl" class="card-img">
+                <img [src]="quotation.imageUrl" class="card-img">
                 <div class="card-content">
                     <p class="card-text">{{ quotation.message }}</p>
                     <p class="card-status">Statut : {{ quotation.status }}</p>
