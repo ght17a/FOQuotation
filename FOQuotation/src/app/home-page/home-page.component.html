@@ -1,0 +1,21 @@
+<div class="quotations">
+    <h3>Quotations à traiter</h3>
+    <div class="card-container">
+        <div class="card" *ngFor="let quotation of quotations$ | async" (click)="openModal(quotation)">
+            <img [src]="quotation.imageUrl" class="card-img">
+            <div class="card-content">
+                <p class="card-text">{{ quotation.message }}</p>
+                <p class="card-status">Statut : {{ quotation.status }}</p>
+                <p>Estimation de prix à ajouter pour cette quotation</p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedQuotation" class="modal">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h2>Ajouter une estimation de prix</h2>
+            <input type="number" [(ngModel)]="estimatedPrice" placeholder="Estimation de prix">
+            <button (click)="updatePrice()">Mettre à jour</button>
+        </div>
+    </div>
+</div>
