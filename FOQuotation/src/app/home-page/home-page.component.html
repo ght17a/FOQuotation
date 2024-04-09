@@ -5,7 +5,6 @@
             <img [src]="mainQuotation.imageUrl" class="card-img">
             <div class="card-content">
                 <p class="card-text">{{ mainQuotation.message }}</p>
-                <p class="card-status">Statut : {{ mainQuotation.status }}</p>
                 <input type="number" [(ngModel)]="estimatedPrice" placeholder="Estimation de prix">
                 <button (click)="submitPrice(mainQuotation)">Valider</button>
             </div>
